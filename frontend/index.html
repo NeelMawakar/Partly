@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Partly</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">P</span>
+        <div>
+          <div class="brand-name">Partly</div>
+          <div class="brand-sub">Your apartment search, handled</div>
+        </div>
+      </div>
+
+      <form id="intake" class="intake" novalidate>
+        <div class="side-label">Your search</div>
+        <div class="field">
+          <label for="i-budget">Max rent per month</label>
+          <div class="input-prefix"><span>$</span><input id="i-budget" type="number" min="500" step="50" inputmode="numeric"></div>
+        </div>
+        <div class="field">
+          <label for="i-dest">Work or campus address</label>
+          <input id="i-dest" type="text" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="i-move">Move-in date</label>
+          <input id="i-move" type="date">
+        </div>
+        <div class="field">
+          <label for="i-commute">Max door-to-door commute: <strong id="i-commute-val"></strong></label>
+          <input id="i-commute" type="range" min="10" max="60" step="5">
+        </div>
+        <button class="btn primary block" type="submit">Update search</button>
+      </form>
+
+      <div class="weights">
+        <div class="side-label">What matters most</div>
+        <div id="weights"></div>
+      </div>
+
+      <div class="mock-note">Showing mock data</div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <h1 id="headline"></h1>
+          <div class="sub" id="subhead"></div>
+        </div>
+        <div class="summary" id="summary"></div>
+      </header>
+
+      <div class="tabs" role="tablist">
+        <button role="tab" class="tab" data-tab="listings" id="tab-listings">Listings</button>
+        <button role="tab" class="tab" data-tab="outreach" id="tab-outreach">Landlord messages</button>
+        <button role="tab" class="tab" data-tab="viewings" id="tab-viewings">Viewings</button>
+      </div>
+
+      <section id="view-listings" class="view" role="tabpanel"></section>
+      <section id="view-outreach" class="view" role="tabpanel" hidden></section>
+      <section id="view-viewings" class="view" role="tabpanel" hidden></section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="mock-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
